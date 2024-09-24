@@ -46,10 +46,10 @@ const Header = () => {
 
     // Apply active class if it's a hash link or an exact match
     if (isExactMatch || isHashMatch) {
-      return "px-[13.5px] py-[20px] rounded-md bg-primaryColor bg-opacity-[0.2] text-primaryColor transition";
+      return "px-[13.5px] py-[12px] md:py-[20px] rounded-md bg-primaryColor bg-opacity-[0.2] text-primaryColor transition";
     }
 
-    return "px-[13.5px] py-[20px] hover:bg-primaryColor hover:bg-opacity-[0.2] hover:text-primaryColor transition";
+    return "px-[13.5px] py-[12px] md:py-[20px] hover:bg-primaryColor hover:bg-opacity-[0.2] hover:text-primaryColor transition";
   };
 
   // Scroll event listener to detect when the user scrolls past a certain point
@@ -154,17 +154,17 @@ const Header = () => {
         <div
           ref={menuRef}
           id="mobile-menu"
-          className={`fixed inset-y-0 right-0 transform w-2/3 max-w-xs p-5 z-50 bg-white lg:hidden flex flex-col items-center gap-[40px] shadow-lg transition-transform duration-300 ease-in-out ${
+          className={`fixed inset-y-0 right-0 transform w-2/3 max-w-xs p-5 z-50 bg-white lg:hidden flex flex-col items-center gap-[10px] shadow-lg transition-transform duration-300 ease-in-out ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
           {/* Close Button */}
           <button
-            className="self-end text-gray-600 focus:outline-none"
+            className="self-end text-black focus:outline-none"
             onClick={toggleMenu}
           >
             <svg
-              className="w-8 h-8"
+              className="w-[28px] h-[28px]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -173,14 +173,14 @@ const Header = () => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 d="M6 18L18 6M6 6l12 12"
               ></path>
             </svg>
           </button>
 
           {/* Mobile Navigation */}
-          <nav className="flex flex-col gap-[40px] items-center text-[20px] leading-[24px] text-primary-color font-[400]">
+          <nav className="flex flex-col gap-[5px] items-center text-[18px] sm:text-[20px] leading-[24px] text-primary-color font-[400]">
             <Link href="/#hero" className={getLinkClasses("/#hero")}>
               Home
             </Link>
@@ -204,8 +204,8 @@ const Header = () => {
           {/* Buttons */}
           <div className="inline-flex w-fit">
             <Link href="/#contact">
-              <button className="uppercase font-[600] text-[22px] leading-[30px] text-white py-[16px] px-[38px] bg-[#202020] rounded-[10px]">
-                Contact
+              <button className="uppercase font-[600] text-[15px] leading-[21px] text-white tracking-[10%] py-[12px] md:py-[13px] px-[23px] bg-primaryColor rounded-[10px]">
+                Contact Us
               </button>
             </Link>
           </div>
