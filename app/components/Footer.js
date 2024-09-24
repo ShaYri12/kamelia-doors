@@ -1,104 +1,89 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
+import { ImFacebook } from "react-icons/im";
 
 const Footer = () => {
   return (
-    <footer className="bg-white w-full">
-      <div className="py-20 max-w-[1130px] w-full mx-auto flex items-start justify-between px-3.5 sm:px-5 gap-10 md:flex-row flex-col">
-        <Image src="/assets/Logo.svg" alt="Logo" width={149} height={32} />
-        <div className="flex items-start justify-between max-w-[714px] w-full gap-2 flex-wrap sm:flex-nowrap">
+    <footer className="bg-[#FCF8F3] w-full">
+      <div className="py-[60px] max-w-[1130px] w-full mx-auto flex items-start justify-between px-[53px] sm:px-5 gap-10 md:flex-row flex-col">
+        <Image
+          className="order-2 sm:order-1"
+          src="/assets/Logo.svg"
+          alt="Logo"
+          width={194.65}
+          height={80}
+        />
+        <div className="grid sm:grid-cols-3 grid-cols-2 gap-y-[35px] items-start justify-between order-1 sm:order-2 flex-wrap max-w-[714px] w-full sm:gap-2">
           <ul className="max-w-[100px] sm:max-w-[200px] w-full">
-            <h3 className="text-[#0C0839] text-[14px] sm:text-[16px] leading-[24px] tracking-[-1%] font-bold font-jakarta mb-4">
-              SELL A HOME
+            <h3 className="text-blackish text-[18px] leading-[19.8px] font-[500] mb-[28px]">
+              Pages
             </h3>
-            <li className="text-[#0C0839] opacity-60 font-medium text-[14px] sm:text-[16px] leading-[42px] font-jakarta text-nowrap">
-              Request an offer
+            <li className="text-blackish opacity-80 font-[400] text-[16px] leading-[35.2px]">
+              Home
             </li>
-            <li className="text-[#0C0839] opacity-60 font-medium text-[14px] sm:text-[16px] leading-[42px] font-jakarta">
-              Pricing
+            <li className="text-blackish opacity-80 font-[400] text-[16px] leading-[35.2px]">
+              About
             </li>
-            <li className="text-[#0C0839] opacity-60 font-medium text-[14px] sm:text-[16px] leading-[42px] font-jakarta">
-              Reviews
+            <li className="text-blackish opacity-80 font-[400] text-[16px] leading-[35.2px]">
+              Products
             </li>
-            <li className="text-[#0C0839] opacity-60 font-medium text-[14px] sm:text-[16px] leading-[42px] font-jakarta">
-              Stories
+            <li className="text-blackish opacity-80 font-[400] text-[16px] leading-[35.2px]">
+              Gallery
             </li>
           </ul>
           <ul className="max-w-[100px] sm:max-w-[200px] w-full">
-            <h3 className="text-[#0C0839] text-[14px] sm:text-[16px] leading-[24px] tracking-[-1%] font-bold font-jakarta mb-4">
-              ABOUT
+            <h3 className="text-blackish text-[18px] leading-[19.8px] font-[500] mb-[28px]">
+              Others
             </h3>
-            <li className="text-[#0C0839] opacity-60 font-medium text-[14px] sm:text-[16px] leading-[42px] font-jakarta">
-              Company
+            <li className="text-blackish opacity-80 font-[400] text-[16px] leading-[35.2px]">
+              Featured Doors
             </li>
-            <li className="text-[#0C0839] opacity-60 font-medium text-[14px] sm:text-[16px] leading-[42px] font-jakarta">
-              How it works
+            <li className="text-blackish opacity-80 font-[400] text-[16px] leading-[35.2px]">
+              Our Experts
             </li>
-            <li className="text-[#0C0839] opacity-60 font-medium text-[14px] sm:text-[16px] leading-[42px] font-jakarta">
-              Contact
-            </li>
-            <li className="text-[#0C0839] opacity-60 font-medium text-[14px] sm:text-[16px] leading-[42px] font-jakarta">
-              Investors
+            <li className="text-blackish opacity-80 font-[400] text-[16px] leading-[35.2px]">
+              Contact Us
             </li>
           </ul>
           <ul className="max-w-[100px] sm:max-w-[200px] w-full">
-            <h3 className="text-[#0C0839] text-[14px] sm:text-[16px] leading-[24px] tracking-[-1%] font-bold font-jakarta mb-4">
-              RESOURCES
+            <h3 className="text-blackish text-[18px] leading-[19.8px] font-[500] mb-[28px]">
+              Join Us
             </h3>
-            <li className="text-[#0C0839] opacity-60 font-medium text-[14px] sm:text-[16px] leading-[42px] font-jakarta">
-              Blog
-            </li>
-            <li className="text-[#0C0839] opacity-60 font-medium text-[14px] sm:text-[16px] leading-[42px] font-jakarta">
-              Guides
-            </li>
-            <li className="text-[#0C0839] opacity-60 font-medium text-[14px] sm:text-[16px] leading-[42px] font-jakarta">
-              FAQ
-            </li>
-            <li className="text-[#0C0839] opacity-60 font-medium text-[14px] sm:text-[16px] leading-[42px] font-jakarta">
-              Help Center
-            </li>
+            <div className="flex gap-[16px]">
+              <li className="text-primaryColor">
+                <FaYoutube size={20} />
+              </li>
+              <li className="text-primaryColor">
+                <ImFacebook size={20} />
+              </li>
+              <li className="text-primaryColor">
+                <FaTwitter size={20} />
+              </li>
+              <li className="text-primaryColor">
+                <FaInstagram size={20} />
+              </li>
+              <li className="text-primaryColor">
+                <FaLinkedinIn size={20} />
+              </li>
+            </div>
           </ul>
         </div>
       </div>
 
-      <div className="border-t-2 border-[#0C0839] border-opacity-10 py-8 px-5">
-        <div className="max-w-[1130px] w-full mx-auto flex items-center justify-between sm:flex-row flex-col gap-5">
-          <h3 className="text-[#0C0839] text-opacity-60 text-[16px] leading-[30px] font-medium">
-            ©2024 NFsTay. All rights reserved
+      <div className="border-t-2 border-t-[#C1C7CD] border-opacity-10 py-[40px] px-[53px] sm:px-5">
+        <div className="max-w-[1130px] w-full mx-auto flex sm:items-center items-start justify-between sm:flex-row flex-col gap-5">
+          <h3 className="text-blackish text-[14px] leading-[19.6px] font-[400]">
+            Kamelia Doors @ 2024. All rights reserved.
           </h3>
-          <div className="opacity-60 flex items-center gap-5 md:gap-10">
-            <Link href="/">
-              <Image
-                src="/assets/facebook.svg"
-                alt="Facebook"
-                width={24}
-                height={24}
-              />
-            </Link>
-            <Link href="/">
-              <Image
-                src="/assets/instagram.svg"
-                alt="Facebook"
-                width={24}
-                height={24}
-              />
-            </Link>
-            <Link href="/">
-              <Image
-                src="/assets/twitter.svg"
-                alt="Facebook"
-                width={24}
-                height={24}
-              />
-            </Link>
-            <Link href="/">
-              <Image
-                src="/assets/linkedin.svg"
-                alt="Facebook"
-                width={24}
-                height={24}
-              />
-            </Link>
+          <div className="text-blackish hidden sm:flex items-center gap-6 md:gap-6 text-[16px] leading-[16px]">
+            <Link href="#privacy-policy">Privacy Policy</Link>
+            <Link href="#terms-condition">Terms & Conditions</Link>
           </div>
         </div>
       </div>
