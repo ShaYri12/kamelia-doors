@@ -64,7 +64,7 @@ const Hero = () => {
       </Slider>
 
       {/* Overlay with Blurred Background and Text */}
-      <div className="absolute left-[2%] xl:left-[10%] xl:me-0 me-[10%] top-[18vh] hero-content sm:top-[20vh] z-10 bg-[#FFFFFF4D]/30 backdrop-blur-md rounded-[20px]">
+      <div className="absolute left-[2%] xl:left-[10%] xl:me-0 me-[10%] top-[18vh] hero-content sm:top-[28vh] md:top-[26vh] xl:top-[20vh] z-10 bg-[#FFFFFF4D]/30 backdrop-blur-md rounded-[20px]">
         <div className="text-left text-black max-w-[650px] rounded-[9.23px] sm:rounded-[20px] px-[15px] md:px-[28px] py-[23px] md:py-[48px]">
           <p className="text-primaryColor text-[9px] sm:text-[16px] lg:text-[18px] font-[600] leading-[13.5px] sm:leading-[27px] tracking-[7%] uppercase">
             WELCOME TO Kamelia doors

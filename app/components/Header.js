@@ -2,10 +2,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { usePathname } from "next/navigation"; // For active link detection
+import { usePathname } from "next/navigation";
+import { IoIosArrowDown } from "react-icons/io";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for dropdown
   const [currentHash, setCurrentHash] = useState(""); // State to store current hash
   const [scrolled, setScrolled] = useState(false); // State to track scroll position
   const menuRef = useRef(null);
@@ -15,9 +17,14 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setIsMenuOpen(false);
+      setIsDropdownOpen(false); // Close dropdown when clicking outside
     }
   };
 
@@ -134,9 +141,40 @@ const Header = () => {
             >
               Our Products
             </Link>
-            <Link href="/#projects" className={getLinkClasses("/#projects")}>
-              Our Projects
-            </Link>
+            <div className="relative">
+              <button
+                onClick={toggleDropdown}
+                className="px-[13.5px] py-[12px] md:py-[20px] hover:bg-primaryColor hover:bg-opacity-[0.2] hover:text-primaryColor transition uppercase font-[600] text-[14px] flex items-center gap-[5px]"
+              >
+                Our Projects
+                <IoIosArrowDown />
+              </button>
+              {isDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 py-2 w-48 bg-white border border-gray-200 rounded shadow-lg">
+                  <Link
+                    href="/project-1"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    Project 1
+                  </Link>
+                  <Link
+                    href="/project-2"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    Project 2
+                  </Link>
+                  <Link
+                    href="/project-3"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    Project 3
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link href="/#portfolio" className={getLinkClasses("/#portfolio")}>
               Portfolio
             </Link>
@@ -193,18 +231,46 @@ const Header = () => {
             >
               Our Products
             </Link>
-            <Link href="/#projects" className={getLinkClasses("/#projects")}>
+            <button
+              onClick={toggleDropdown}
+              className="hover:text-primaryColor px-[13.5px] py-[12px] flex gap-[5px] items-center"
+            >
               Our Projects
-            </Link>
+              <IoIosArrowDown />
+            </button>
+            {isDropdownOpen && (
+              <div className="flex flex-col gap-[8px]">
+                <Link
+                  href="/project-1"
+                  className="hover:text-primaryColor"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  Project 1
+                </Link>
+                <Link
+                  href="/project-2"
+                  className="hover:text-primaryColor"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  Project 2
+                </Link>
+                <Link
+                  href="/project-3"
+                  className="hover:text-primaryColor"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  Project 3
+                </Link>
+              </div>
+            )}
             <Link href="/#portfolio" className={getLinkClasses("/#portfolio")}>
               Portfolio
             </Link>
           </nav>
 
-          {/* Buttons */}
-          <div className="inline-flex w-fit">
+          <div className="inline-flex gap-[22px]">
             <Link href="/#contact">
-              <button className="uppercase font-[600] text-[15px] leading-[21px] text-white tracking-[10%] py-[12px] md:py-[13px] px-[23px] bg-primaryColor rounded-[10px]">
+              <button className="uppercase font-[600] text-[15px] leading-[21px] text-white tracking-[10%] py-[13px] px-[23px] bg-primaryColor rounded-[10px]">
                 Contact Us
               </button>
             </Link>
