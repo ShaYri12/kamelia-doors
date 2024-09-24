@@ -181,7 +181,7 @@ const Header = () => {
           </nav>
           <div className="inline-flex gap-[22px]">
             <Link href="/#contact">
-              <button className="uppercase font-[600] text-[15px] leading-[21px] text-white tracking-[10%] py-[13px] px-[23px] bg-primaryColor rounded-[10px]">
+              <button className="uppercase font-[600] text-[15px] leading-[21px] text-white tracking-[10%] py-[13px] px-[23px] bg-primaryColor rounded-[10px] hover:bg-orange-600 transition duration-300 ease-in-out">
                 Contact Us
               </button>
             </Link>

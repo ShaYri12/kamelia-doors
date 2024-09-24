@@ -29,7 +29,7 @@ const WhoWeAre = () => {
             home but also offer lasting value. Discover the art of fine interior
             doors with us.
           </p>
-          <button class="md:flex hidden mt-6 px-6 py-3 bg-primaryColor text-white font-semibold rounded-md hover:bg-orange-600 transition duration-300">
+          <button class="md:flex hidden mt-[48px] px-[23px] py-[13px] bg-primaryColor uppercase text-white font-[600] text-[15px] leading-[22.5px] tracking-[10%] rounded-[10px] hover:bg-orange-600 transition duration-300">
             Learn More
           </button>
         </div>

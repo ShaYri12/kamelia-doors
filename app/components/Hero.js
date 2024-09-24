@@ -77,10 +77,10 @@ const Hero = () => {
             tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
           </p>
           <div className="mt-[22px] sm:mt-[65px] flex flex-wrap gap-[20px]">
-            <button className="bg-primaryColor text-white text-[10px] sm:text-[16px] lg:text-[18px] px-[9.54px] sm:px-[28.5px] py-[7.84px] sm:py-[16.5px] rounded-[10px] shadow-lg hover:bg-primaryColor transition duration-300">
+            <button className="bg-primaryColor text-white text-[10px] sm:text-[16px] lg:text-[18px] px-[9.54px] sm:px-[28.5px] py-[7.84px] sm:py-[16.5px] rounded-[10px] shadow-lg hover:bg-orange-600 transition duration-300">
               ORDER NOW
             </button>
-            <button className="sm:flex hidden bg-transparent border-4 border-primaryColor text-primaryColor text-[10px] sm:text-[16px] lg:text-[18px] px-[9.54px] sm:px-[28.5px] py-[7.84px] sm:py-[16.5px] rounded-[10px] hover:bg-primaryColor hover:text-white transition duration-300">
+            <button className="sm:flex hidden bg-transparent border-4 border-primaryColor text-primaryColor text-[10px] sm:text-[16px] lg:text-[18px] px-[9.54px] sm:px-[28.5px] py-[7.84px] sm:py-[16.5px] rounded-[10px] hover:bg-orange-600 hover:text-white transition duration-300">
               TAKE MEASUREMENTS
             </button>
           </div>
