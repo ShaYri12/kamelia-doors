@@ -1,27 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero.css */
+@media screen and (max-width: 346px) {
+  .hero-content {
+    top: 15vh;
   }
+}
+
+.dots-container {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Make sure the container spans the width of the screen */
+}
+
+.slick-dots {
+  display: flex !important;
+  gap: 10px; /* Space between dots */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+}
+
+/* Inactive dot styles */
+.slick-dots li {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-dots li button {
+  display: none !important; /* Hide default slick buttons */
+}
+
+.slick-dots li .dot {
+  border: 1px solid transparent; /* No border for inactive */
+}
+
+.slick-dots li .inner-dot {
+  background-color: #d5d5d5; /* Light gray for inactive inner dot */
+  min-width: 11px;
+  min-height: 11px;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+/* Active dot styles */
+.slick-dots li.slick-active .dot {
+  border: 1px solid #ee7922;
+  min-width: 27px;
+  min-height: 27px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-dots li.slick-active .inner-dot {
+  background-color: #ee7922; /* Orange background for active inner dot */
 }
