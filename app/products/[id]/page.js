@@ -1,18 +1,24 @@
 "use client";
-import React, { useState } from "react";
-import Qualityies from "../components/Qualityies";
+import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation"; // To get the current path
+import productData from "@/public/productsData";
+import Qualityies from "../../components/Qualityies";
 import Additionalinfo from "./Additionalinfo";
 import Related from "./Related";
 
 const ProductPage = () => {
+  const pathname = usePathname(); // Get the path
+  const id = parseInt(pathname.split("/").pop()); // Get the last part of the URL and convert to number
+
+  // Find the product by id
+  const product = productData.find((p) => p.id === id);
+
   const [image, setImage] = useState(1);
 
-  const images = [
-    "/assets/door1.png",
-    "/assets/door2.png",
-    "/assets/door3.png",
-    "/assets/door4.png",
-  ];
+  // If product is not found, handle the case
+  if (!product) {
+    return <div>Product not found</div>;
+  }
 
   return (
     <section>
@@ -22,14 +28,14 @@ const ProductPage = () => {
           <div className="lg:w-[50%] flex flex-col justify-center">
             <div className="rounded-[17px] bg-[#E8E0D7] flex items-center justify-center h-[508px]">
               <img
-                src={images[image - 1]}
-                alt={`Wooden Door ${image}`}
+                src={product.images[image - 1]}
+                alt={`Product Image ${image}`}
                 className="rounded-md object-contain h-full"
               />
             </div>
 
             <div className="flex justify-between mt-[21px]">
-              {images.map((_, index) => (
+              {product.images.map((img, index) => (
                 <button
                   key={index}
                   onClick={() => setImage(index + 1)}
@@ -38,7 +44,7 @@ const ProductPage = () => {
                   } flex items-center justify-center`}
                 >
                   <img
-                    src={images[index]}
+                    src={img}
                     alt={`Thumbnail ${index + 1}`}
                     className="object-cover h-full w-full rounded-md"
                   />
@@ -49,25 +55,18 @@ const ProductPage = () => {
 
           {/* Details Section */}
           <div className="lg:w-[50%] flex flex-col justify-start pt-[35px]">
-            <h3 class="text-primaryColor text-[11px] leading-[12.1px] uppercase font-[500]">
-              HARDWOOD DOOR
+            <h3 className="text-primaryColor text-[11px] leading-[12.1px] uppercase font-[500]">
+              {product.category}
             </h3>
             <h1 className="text-[34px] md:text-[40px] font-[500] leading-[44px] text-blackish mt-[8px] md:mt-[17px]">
-              WOODEN DOOR
+              {product.name}
             </h1>
             <p className="text-black text-[14px] font-[400] leading-[17.5px] mt-[18px] md:mt-[35px]">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s,It was popularised in the 1960s with the
-              release of Letraset sheets containing Lorem Lorem Ipsum is simply
-              dummy text of the printing and typesetting industry. Lorem Ipsum
-              has been the industry's standard dummy text ever since the
-              1500s,It was popularised in the 1960s with the release of Letraset
-              sheets containing Lorem 
+              {product.description}
             </p>
 
             <p className="text-primaryColor text-[28px] md:text-[36px] leading-[30px] md:leading-[39.6px] font-[500] mt-[17px]">
-              1000 JD
+              {product.jd}
             </p>
 
             {/* Color Options */}
