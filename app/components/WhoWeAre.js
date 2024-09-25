@@ -2,8 +2,8 @@ import React from "react";
 
 const WhoWeAre = () => {
   return (
-    <section className="px-[18px]">
-      <div class="max-w-[1280px] mx-auto md:pb-[100px] pb-[17.35px] md:px-6 lg:px-8 flex md:flex-row flex-col items-center gap-[20px] md:gap-[30px] lg:gap-[75px]">
+    <section className="px-[18px] md:px-6 lg:px-8">
+      <div class="max-w-[1280px] mx-auto md:pb-[100px] pb-[17.35px] flex md:flex-row flex-col items-center gap-[20px] md:gap-[30px] lg:gap-[75px]">
         <div class="md:w-1/2 md:order-1 order-2">
           <img
             src="/assets/who-we-are.png"

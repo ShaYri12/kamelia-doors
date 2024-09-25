@@ -81,3 +81,8 @@ html {
 .slick-dots li.slick-active .inner-dot {
   background-color: #ee7922; /* Orange background for active inner dot */
 }
+
+.custom-arrow::before {
+  content: "" !important;
+  background: transparent !important; /* Makes the before element transparent */
+}

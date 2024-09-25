@@ -135,10 +135,7 @@ const Header = () => {
             <Link href="/#about-us" className={getLinkClasses("/#about-us")}>
               About Us
             </Link>
-            <Link
-              href="/our-products"
-              className={getLinkClasses("/our-products")}
-            >
+            <Link href="/products" className={getLinkClasses("/products")}>
               Our Products
             </Link>
             <div className="relative">
@@ -225,10 +222,7 @@ const Header = () => {
             <Link href="/#about-us" className={getLinkClasses("/#about-us")}>
               About Us
             </Link>
-            <Link
-              href="/our-products"
-              className={getLinkClasses("/our-products")}
-            >
+            <Link href="/products" className={getLinkClasses("/products")}>
               Our Products
             </Link>
             <button
