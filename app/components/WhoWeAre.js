@@ -5,13 +5,13 @@ const WhoWeAre = () => {
   return (
     <section className="px-[18px]">
       <div class="max-w-[1200px] mx-auto md:pb-[100px] pb-[17.35px] md:px-6 lg:px-8 flex xmd:flex-row flex-col items-center gap-[20px] md:gap-[30px] lg:gap-[75px]">
-          <Image
-            src="/assets/who-we-are.svg"
-            alt="Kamelia Doors"
-            width={500}
-            height={530}
-            className="lg:w-[500px] xmd:w-[400px] "
-          />
+        <Image
+          src="/assets/who-we-are.svg"
+          alt="Kamelia Doors"
+          width={500}
+          height={530}
+          className="lg:w-[500px] xmd:w-[400px] "
+        />
 
         <div class=" ">
           <h3 class="text-primaryColor text-[20px] leading-[30px] tracking-[7%] uppercase font-[500]">

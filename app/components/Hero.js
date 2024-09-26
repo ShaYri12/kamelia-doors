@@ -27,7 +27,10 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative h-[357px] sm:h-[115vh] overflow-hidden z-[10]">
+    <div
+      id="hero"
+      className="relative h-[357px] sm:h-[115vh] overflow-hidden z-[10]"
+    >
       {/* Background Image Slider */}
       <Slider
         {...settings}

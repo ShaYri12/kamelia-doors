@@ -129,16 +129,13 @@ const Header = () => {
         {/* Desktop Navigation + Buttons */}
         <div className="hidden lg:flex items-center gap-[20px]">
           <nav className="flex gap-[20px] text-[14px] leading-[21px] tracking-[10%] text-blackish font-[600] uppercase">
-            <Link href="/#hero" className={getLinkClasses("/#hero")}>
+            <a href="/#hero" className={getLinkClasses("/#hero")}>
               Home
-            </Link>
-            <Link href="/#about-us" className={getLinkClasses("/#about-us")}>
+            </a>
+            <a href="/#about-us" className={getLinkClasses("/#about-us")}>
               About Us
-            </Link>
-            <Link
-              href="/products"
-              className={getLinkClasses("/products")}
-            >
+            </a>
+            <Link href="/products" className={getLinkClasses("/products")}>
               Our Products
             </Link>
             <div className="relative">
@@ -175,16 +172,16 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <Link href="/#portfolio" className={getLinkClasses("/#portfolio")}>
+            <a href="/#portfolio" className={getLinkClasses("/#portfolio")}>
               Portfolio
-            </Link>
+            </a>
           </nav>
           <div className="inline-flex gap-[22px]">
-            <Link href="/#contact">
+            <a href="/#contact">
               <button className="uppercase font-[600] text-[15px] leading-[21px] text-white tracking-[10%] py-[13px] px-[23px] bg-primaryColor rounded-[10px]">
                 Contact Us
               </button>
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -219,16 +216,13 @@ const Header = () => {
 
           {/* Mobile Navigation */}
           <nav className="flex flex-col gap-[5px] items-center text-[18px] sm:text-[20px] leading-[24px] text-primary-color font-[400]">
-            <Link href="/#hero" className={getLinkClasses("/#hero")}>
+            <a href="/#hero" className={getLinkClasses("/#hero")}>
               Home
-            </Link>
-            <Link href="/#about-us" className={getLinkClasses("/#about-us")}>
+            </a>
+            <a href="/#about-us" className={getLinkClasses("/#about-us")}>
               About Us
-            </Link>
-            <Link
-              href="/products"
-              className={getLinkClasses("/products")}
-            >
+            </a>
+            <Link href="/products" className={getLinkClasses("/products")}>
               Our Products
             </Link>
             <button
@@ -263,17 +257,17 @@ const Header = () => {
                 </Link>
               </div>
             )}
-            <Link href="/#portfolio" className={getLinkClasses("/#portfolio")}>
+            <a href="/#portfolio" className={getLinkClasses("/#portfolio")}>
               Portfolio
-            </Link>
+            </a>
           </nav>
 
           <div className="inline-flex gap-[22px]">
-            <Link href="/#contact">
+            <a href="/#contact">
               <button className="uppercase font-[600] text-[15px] leading-[21px] text-white tracking-[10%] py-[13px] px-[23px] bg-primaryColor rounded-[10px]">
                 Contact Us
               </button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
