@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation"; // To get the current path
-import productData from "@/public/productsData";
+import productData from "../../../public/productData";
 import Qualityies from "../../components/Qualityies";
 import Additionalinfo from "./Additionalinfo";
 import Related from "./Related";

@@ -135,7 +135,10 @@ const Header = () => {
             <Link href="/#about-us" className={getLinkClasses("/#about-us")}>
               About Us
             </Link>
-            <Link href="/products" className={getLinkClasses("/products")}>
+            <Link
+              href="/products"
+              className={getLinkClasses("/products")}
+            >
               Our Products
             </Link>
             <div className="relative">
@@ -178,7 +181,7 @@ const Header = () => {
           </nav>
           <div className="inline-flex gap-[22px]">
             <Link href="/#contact">
-              <button className="uppercase font-[600] text-[15px] leading-[21px] text-white tracking-[10%] py-[13px] px-[23px] bg-primaryColor rounded-[10px] hover:bg-orange-600 transition duration-300 ease-in-out">
+              <button className="uppercase font-[600] text-[15px] leading-[21px] text-white tracking-[10%] py-[13px] px-[23px] bg-primaryColor rounded-[10px]">
                 Contact Us
               </button>
             </Link>
@@ -222,7 +225,10 @@ const Header = () => {
             <Link href="/#about-us" className={getLinkClasses("/#about-us")}>
               About Us
             </Link>
-            <Link href="/products" className={getLinkClasses("/products")}>
+            <Link
+              href="/products"
+              className={getLinkClasses("/products")}
+            >
               Our Products
             </Link>
             <button

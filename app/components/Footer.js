@@ -11,10 +11,10 @@ import { ImFacebook } from "react-icons/im";
 const Footer = () => {
   return (
     <footer className="bg-[#FCF8F3] w-full">
-      <div className="py-[60px] max-w-[1130px] w-full mx-auto flex items-start justify-between px-[53px] sm:px-5 gap-10 md:flex-row flex-col">
+      <div className="py-[60px] max-w-[1130px] w-full mx-auto flex items-start justify-between px-5 gap-10 md:flex-row flex-col">
         <Image
           className="order-2 sm:order-1"
-          src="/assets/Logo.svg"
+          src="/assets/logo.svg"
           alt="Logo"
           width={194.65}
           height={80}
@@ -76,9 +76,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t-2 border-t-[#C1C7CD] border-opacity-10 py-[40px] px-[53px] sm:px-5">
-        <div className="max-w-[1130px] w-full mx-auto flex sm:items-center items-start justify-between sm:flex-row flex-col gap-5">
-          <h3 className="text-blackish text-[14px] leading-[19.6px] font-[400]">
+      <div className="border-t-2 border-t-[#C1C7CD] border-opacity-10 py-[40px] px-[28px] sm:px-5">
+        <div className="max-w-[1130px] w-full mx-auto flex items-center justify-between sm:flex-row flex-col gap-5">
+          <h3 className="text-blackish text-[14px] leading-[19.6px] font-[400] !text-center">
             Kamelia Doors @ 2024. All rights reserved.
           </h3>
           <div className="text-blackish hidden sm:flex items-center gap-6 md:gap-6 text-[16px] leading-[16px]">

@@ -64,7 +64,7 @@ const Hero = () => {
       </Slider>
 
       {/* Overlay with Blurred Background and Text */}
-      <div className="absolute left-[2%] xl:left-[10%] xl:me-0 me-[10%] top-[18vh] hero-content sm:top-[28vh] md:top-[26vh] lg:top-[23vh] xl:top-[20vh] z-10 bg-[#FFFFFF4D]/30 backdrop-blur-md rounded-[20px]">
+      <div className="absolute left-[2%] xl:left-[10%] xl:me-0 me-[10%] top-[15vh] hero-content sm:top-[28vh] md:top-[26vh] lg:top-[23vh] xl:top-[20vh] z-10 bg-[#FFFFFF4D]/30 backdrop-blur-md rounded-[20px]">
         <div className="text-left text-black max-w-[650px] rounded-[9.23px] sm:rounded-[20px] px-[15px] md:px-[28px] py-[23px] md:py-[48px]">
           <p className="text-primaryColor text-[9px] sm:text-[16px] lg:text-[18px] font-[600] leading-[13.5px] sm:leading-[27px] tracking-[7%] uppercase">
             WELCOME TO Kamelia doors
@@ -77,10 +77,10 @@ const Hero = () => {
             tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
           </p>
           <div className="mt-[22px] sm:mt-[65px] flex flex-wrap gap-[20px]">
-            <button className="bg-primaryColor text-white text-[10px] sm:text-[16px] lg:text-[18px] px-[9.54px] sm:px-[28.5px] py-[7.84px] sm:py-[16.5px] rounded-[10px] shadow-lg hover:bg-orange-600 transition duration-300">
+            <button className="bg-primaryColor text-white text-[10px] sm:text-[16px] lg:text-[18px] px-[9.54px] sm:px-[28.5px] py-[7.84px] sm:py-[16.5px] rounded-[10px] shadow-lg hover:bg-primaryColor transition duration-300">
               ORDER NOW
             </button>
-            <button className="sm:flex hidden bg-transparent border-4 border-primaryColor text-primaryColor text-[10px] sm:text-[16px] lg:text-[18px] px-[9.54px] sm:px-[28.5px] py-[7.84px] sm:py-[16.5px] rounded-[10px] hover:bg-orange-600 hover:text-white transition duration-300">
+            <button className="sm:flex hidden bg-transparent border-4 border-primaryColor text-primaryColor text-[10px] sm:text-[16px] lg:text-[18px] px-[9.54px] sm:px-[28.5px] py-[7.84px] sm:py-[16.5px] rounded-[10px] hover:bg-primaryColor hover:text-white transition duration-300">
               TAKE MEASUREMENTS
             </button>
           </div>

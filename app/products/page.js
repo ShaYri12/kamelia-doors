@@ -1,4 +1,4 @@
-import productData from "@/public/productsData";
+import productData from "../../public/productData";
 import Link from "next/link";
 import React from "react";
 
