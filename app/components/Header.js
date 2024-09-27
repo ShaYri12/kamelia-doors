@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { IoIosArrowDown } from "react-icons/io";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -182,6 +183,7 @@ const Header = () => {
               </button>
             </a>
           </div>
+          <LanguageSwitcher/>
         </div>
 
         {/* Mobile Menu */}
