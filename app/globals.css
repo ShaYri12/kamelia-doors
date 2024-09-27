@@ -87,3 +87,7 @@ html {
 .bg-custom {
   background: linear-gradient(93.04deg, #ff8d36 11.79%, #ee7922 100%);
 }
+
+.swiper-slide {
+  width: fit-content !important;
+}
