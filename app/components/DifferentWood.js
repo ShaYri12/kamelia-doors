@@ -12,6 +12,7 @@ const woodMaterials = [
   "/assets/wood-2.png",
   "/assets/wood-3.png",
   "/assets/wood-2.png",
+  "/assets/wood-3.png",
 ];
 
 // Custom Previous Arrow
