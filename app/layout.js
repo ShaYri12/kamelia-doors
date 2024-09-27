@@ -1,6 +1,8 @@
+
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "./globals.css";
+import i18n from '../public/locales/i18n';
 
 export const metadata = {
   title: "Kamelia Doors",

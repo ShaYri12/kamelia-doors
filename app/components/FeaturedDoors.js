@@ -40,9 +40,9 @@ const FeaturedDoors = () => {
                     {product.description}
                   </p>
                   <div className="flex justify-between flex-wrap items-center mt-[20px] md:mt-[30px] gap-1">
-                    <div className="font-[500] text-[14px] md:text-[22px] text-blackish">
+                    {/* <div className="font-[500] text-[14px] md:text-[22px] text-blackish">
                       ${product.price.toFixed(2)}
-                    </div>
+                    </div> */}
                     <button className="px-[10px] md:px-[15px] py-[8px] md:py-[12px] border-2 border-primaryColor text-primaryColor hover:text-white font-[600] text-[9px] md:text-[13px] leading-[13.5px] md:leading-[19.5px] uppercase rounded-[8px] hover:bg-orange-600 transition duration-300">
                       Add to Cart
                     </button>

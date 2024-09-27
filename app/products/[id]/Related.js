@@ -10,37 +10,31 @@ const Related = () => {
     {
       id: 1,
       name: "SECURITY DOOR",
-      price: "1500 JD",
       image: "/assets/door1.png",
     },
     {
       id: 2,
       name: "FORMICA DOOR",
-      price: "1200 JD",
       image: "/assets/door2.png",
     },
     {
       id: 3,
       name: "WOODEN DOOR",
-      price: "1487 JD",
       image: "/assets/door3.png",
     },
     {
       id: 4,
       name: "SECURITY DOOR",
-      price: "1500 JD",
       image: "/assets/door4.png",
     },
     {
       id: 5,
       name: "FORMICA DOOR",
-      price: "1200 JD",
       image: "/assets/door5.png",
     },
     {
       id: 6,
       name: "WOODEN DOOR",
-      price: "1487 JD",
       image: "/assets/door3.png",
     },
   ];
@@ -89,9 +83,9 @@ const Related = () => {
                 <h3 className="text-[24px] font-[500] leading-[26.4px] text-black">
                   {product.name}
                 </h3>
-                <p className="text-black text-[14px] font-[500] leading-[15.4px] mt-[17px]">
+                {/* <p className="text-black text-[14px] font-[500] leading-[15.4px] mt-[17px]">
                   {product.price}
-                </p>
+                </p> */}
               </div>
             </div>
           ))}
