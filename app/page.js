@@ -13,13 +13,13 @@ export default function Home() {
     <div>
       <Hero />
       <Qualityies />
-      <WhoWeAre/>
-      <OurProjectGallery/>
-      <CustomizedDoors/>
-      <DifferentWood/>
-      <AppointmentAboutUs/>
-      <FeaturedDoors/>
-      <GetInTouch/>
+      <WhoWeAre />
+      <OurProjectGallery />
+      <CustomizedDoors />
+      <DifferentWood />
+      <AppointmentAboutUs />
+      <FeaturedDoors />
+      <GetInTouch />
     </div>
   );
 }

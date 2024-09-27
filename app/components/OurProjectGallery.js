@@ -46,20 +46,20 @@ export default function OurProjectGallery() {
   return (
     <div
       id="portfolio"
-      className="bg-[#FCF8F3] py-[50px] md:py-[80px] px-[18px] md:px-6 lg:px-8"
+      className="w-full bg-[#FCF8F3] py-[40px] md:py-[80px] px-5 md:px-6 lg:px-8"
     >
-      <div className="max-w-[1280px] mx-auto">
-        <h1 className="text-[30px] md:text-[40px] leading-[50px] tracking-[7%] font-[700] text-center uppercase">
+      <div className="max-w-[1160px] w-full mx-auto">
+        <h1 className="text-[25px] md:text-[40px] md:leading-[50px] tracking-[7%] font-[700] text-center uppercase">
           Our Project Gallery
         </h1>
-        <p className="md:text-[17px] text-[14px] font-[400] text-[#6E6E6E] md:leading-[25.5px] leading-[21px] md:mb-[60px] mb-[30px] md:mt-[20px] mt-[11px] text-center max-w-[999px] md:px-0 px-[20px] mx-auto">
+        <p className="md:text-[17px] text-[12px] font-[400] text-[#6E6E6E] md:leading-[25.5px] leading-[21px] md:mb-[60px] mb-[30px] md:mt-[20px] mt-[11px] text-center max-w-[999px] mx-auto">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accuium
           doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
           inventore veritatis et quasi architecto beatae vitae dicta sunt
           explicabo
         </p>
       </div>
-      <div className="max-w-[1280px] mx-auto flex flex-wrap md:flex-row flex-col justify-center gap-[16px]">
+      <div className="max-w-[1160px] mx-auto flex flex-wrap md:flex-row flex-col justify-center gap-[16px]">
         {doors.map((door) => (
           <div
             key={door.id}

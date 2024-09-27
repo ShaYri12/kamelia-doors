@@ -43,7 +43,7 @@ const Header = () => {
   // Function to apply active link styles
   const getLinkClasses = (linkPath) => {
     // Check if the link path has a hash
-    const isHashLink = linkPath.startsWith("/#");
+    const isHashLink = linkPath.startsWith("/");
 
     // Determine if the current pathname is exactly equal to the link path
     const isExactMatch = pathname === linkPath;
@@ -78,14 +78,12 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full text-gray-600 z-[999] transition-all duration-300 ${
-        scrolled ? "bg-white shadow-lg" : "bg-transparent"
-      }`}
+      className={`fixed w-full text-gray-600 z-[999] transition-all duration-300 ${scrolled ? "bg-white shadow-lg" : "bg-transparent"
+        }`}
     >
       <div
-        className={`max-w-[1280px] mx-auto flex px-5 ${
-          scrolled ? "py-2" : "sm:py-5 py-[12px]"
-        } items-center justify-between transition-all duration-300`}
+        className={`max-w-[1280px] mx-auto flex px-5 ${scrolled ? "py-2" : "sm:py-5 py-[12px]"
+          } items-center justify-between transition-all duration-300`}
       >
         {/* Logo */}
         <Link
@@ -138,6 +136,7 @@ const Header = () => {
             <Link href="/products" className={getLinkClasses("/products")}>
               Our Products
             </Link>
+
             <div className="relative">
               <button
                 onClick={toggleDropdown}
@@ -189,9 +188,8 @@ const Header = () => {
         <div
           ref={menuRef}
           id="mobile-menu"
-          className={`fixed inset-y-0 right-0 transform w-2/3 max-w-xs p-5 z-50 bg-white lg:hidden flex flex-col items-center gap-[10px] shadow-lg transition-transform duration-300 ease-in-out ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed inset-y-0 right-0 transform w-2/3 max-w-xs p-5 z-50 bg-white lg:hidden flex flex-col items-center gap-[10px] shadow-lg transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           {/* Close Button */}
           <button

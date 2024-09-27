@@ -5,66 +5,43 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Hero = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false,
-    appendDots: (dots) => (
-      <div className="dots-container">
-        <ul className="slick-dots"> {dots} </ul>
-      </div>
-    ),
-    customPaging: (i) => (
-      <div className="dot w-[12px] h-[12px] flex items-center justify-center">
-        <div className="inner-dot w-[8px] h-[8px] rounded-full"></div>
-      </div>
-    ),
-  };
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   autoplay: true,
+  //   autoplaySpeed: 3000,
+  //   arrows: false,
+  //   appendDots: (dots) => (
+  //     <div className="dots-container">
+  //       <ul className="slick-dots"> {dots} </ul>
+  //     </div>
+  //   ),
+  //   customPaging: (i) => (
+  //     <div className="dot w-[12px] h-[12px] flex items-center justify-center">
+  //       <div className="inner-dot w-[8px] h-[8px] rounded-full"></div>
+  //     </div>
+  //   ),
+  // };
 
   return (
     <div
       id="hero"
-      className="relative h-[357px] sm:h-[115vh] overflow-hidden z-[10]"
+      className="relative h-[357px] sm:h-[110vh] overflow-hidden z-[10]"
     >
       {/* Background Image Slider */}
-      <Slider
-        {...settings}
-        className="absolute inset-0 z-0 sm:h-[105vh] h-[357px] w-full"
+      <div
+        // {...settings}
+        className="absolute inset-0 z-0 sm:h-[90h] h-[357px] w-full"
       >
-        <div className="sm:h-[105vh] h-[357px] w-full">
-          <img
-            className="sm:h-[105vh] h-[357px] w-full object-cover bg-no-repeat"
-            src="/assets/hero-bg.png"
-            alt="Hero Background 1"
-          />
-        </div>
-        <div className="sm:h-[105vh] h-[357px] w-full">
-          <img
-            className="sm:h-[105vh] h-[357px] w-full object-cover bg-no-repeat"
-            src="/assets/hero-bg.png"
-            alt="Hero Background 2"
-          />
-        </div>
-        <div className="sm:h-[105vh] h-[357px] w-full">
-          <img
-            className="sm:h-[105vh] h-[357px] w-full object-cover bg-no-repeat"
-            src="/assets/hero-bg.png"
-            alt="Hero Background 3"
-          />
-        </div>
-        <div className="sm:h-[105vh] h-[357px] w-full">
-          <img
-            className="sm:h-[105vh] h-[357px] w-full object-cover bg-no-repeat"
-            src="/assets/hero-bg.png"
-            alt="Hero Background 3"
-          />
-        </div>
-      </Slider>
+        <img
+          className="sm:h-[105vh] h-[357px] w-full object-cover bg-no-repeat"
+          src="/assets/hero-bg.png"
+          alt="Hero Background 3"
+        />
+      </div>
 
       {/* Overlay with Blurred Background and Text */}
       <div className="absolute left-[2%] xl:left-[10%] xl:me-0 me-[10%] top-[15vh] hero-content sm:top-[28vh] md:top-[26vh] lg:top-[23vh] xl:top-[20vh] z-10 bg-[#FFFFFF4D]/30 backdrop-blur-md rounded-[20px]">
