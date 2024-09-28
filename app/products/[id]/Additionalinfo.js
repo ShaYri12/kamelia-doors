@@ -1,32 +1,37 @@
 import React from "react";
+import { useTranslation } from "react-i18next"; // Import the useTranslation hook
 
 const Additionalinfo = () => {
+  const { t } = useTranslation(); // Initialize translation
+
   return (
     <section className="px-[18px] md:px-6 lg:px-8 bg-[#FAFAFA] relative">
       <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-[20px] md:gap-[30px] lg:gap-[75px]">
         <div className="flex-grow py-[65px] md:py-[100px] relative z-[11]">
           <h2 className="text-[26px] sm:text-[30px] md:text-[36px] text-primaryColor leading-[39.6px] font-[600]">
-            Additional Informations
+            {t("Additionalinfo.additional_informations")}{" "}
+            {/* Translated heading */}
           </h2>
           <ul className="mt-[18px] md:mt-[26px] list-disc ps-[20px]">
             <li className="text-[16px] sm:text-[18px] md:text-[20px] font-[500] leading-[32px] sm:leading-[40px] md:leading-[47.8px] text-black">
-              Material Options: Solid wood, engineered wood, MDF, and glass.
+              {t("Additionalinfo.material_options")}{" "}
+              {/* Translated list item */}
             </li>
             <li className="text-[16px] sm:text-[18px] md:text-[20px] font-[500] leading-[32px] sm:leading-[40px] md:leading-[47.8px] text-black">
-              Finish Choices: Matte, semi-gloss, high-gloss, and custom stains.
+              {t("Additionalinfo.finish_choices")}
             </li>
             <li className="text-[16px] sm:text-[18px] md:text-[20px] font-[500] leading-[32px] sm:leading-[40px] md:leading-[47.8px] text-black">
-              Available Sizes: Standard and custom dimensions to fit any space.
+              {t("Additionalinfo.available_sizes")}
             </li>
             <li className="text-[16px] sm:text-[18px] md:text-[20px] font-[500] leading-[32px] sm:leading-[40px] md:leading-[47.8px] text-black">
-              Hardware: Includes a selection of handles, hinges, and locks.
+              {t("Additionalinfo.hardware")}
             </li>
             <li className="text-[16px] sm:text-[18px] md:text-[20px] font-[500] leading-[32px] sm:leading-[40px] md:leading-[47.8px] text-black">
-              Customization: Personalized designs, engravings, and panel styles.
+              {t("Additionalinfo.customization")}
             </li>
           </ul>
           <button className="mt-[38px] md:mt-[42px] px-[46px] py-[14px] w-fit bg-primaryColor text-white text-[14px] sm:text-[15px] font-[500] leading-[16.5px] rounded-[5px] hover:bg-orange-600 transition-colors uppercase">
-            CONTACT US
+            {t("Additionalinfo.contact_us")} {/* Translated button text */}
           </button>
         </div>
         <div className="max-h-[682px] h-full absolute right-[28px] top-0 z-[10] md:flex hidden">

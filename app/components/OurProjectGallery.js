@@ -1,16 +1,18 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 export default function OurProjectGallery() {
+  const { t } = useTranslation();
+
   const allDoors = [
     { id: 1, src: "/assets/project-gallery-1.png" },
     {
       id: 2,
       src: "/assets/project-gallery-2.png",
-      title: "Door Name",
-      details:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusium dolore...",
+      title: t("door2.title"),
+      details: t("door2.details"),
     },
     { id: 3, src: "/assets/project-gallery-3.png" },
     { id: 4, src: "/assets/project-gallery-4.png" },
@@ -20,7 +22,6 @@ export default function OurProjectGallery() {
 
   const [doors, setDoors] = useState(allDoors);
 
-  // Effect to listen for window resize and adjust the number of images displayed
   useEffect(() => {
     const updateDoors = () => {
       if (window.innerWidth < 768) {
@@ -31,17 +32,13 @@ export default function OurProjectGallery() {
       }
     };
 
-    // Call initially
     updateDoors();
-
-    // Add event listener for window resize
     window.addEventListener("resize", updateDoors);
 
-    // Cleanup event listener on unmount
     return () => {
       window.removeEventListener("resize", updateDoors);
     };
-  }, [allDoors]); // Make sure to include allDoors in the dependency array
+  }, [allDoors]);
 
   return (
     <div
@@ -50,13 +47,10 @@ export default function OurProjectGallery() {
     >
       <div className="max-w-[1160px] w-full mx-auto">
         <h1 className="text-[25px] md:text-[40px] md:leading-[50px] tracking-[7%] font-[700] text-center uppercase">
-          Our Project Gallery
+          {t("OurProjectGallery.title")}
         </h1>
         <p className="md:text-[17px] text-[12px] font-[400] text-[#6E6E6E] md:leading-[25.5px] leading-[21px] md:mb-[60px] mb-[30px] md:mt-[20px] mt-[11px] text-center max-w-[999px] mx-auto">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accuium
-          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-          inventore veritatis et quasi architecto beatae vitae dicta sunt
-          explicabo
+          {t("OurProjectGallery.description")}
         </p>
       </div>
       <div className="max-w-[1160px] mx-auto flex flex-wrap md:flex-row flex-col justify-center gap-[16px]">
@@ -65,12 +59,12 @@ export default function OurProjectGallery() {
             key={door.id}
             className={`relative rounded-[20px] overflow-hidden shadow-md md:h-[350px] h-[276px] sm:min-w-[300px] min-w-[284px] md:mx-0 mx-auto ${
               door.id === 1 || door.id === 3
-                ? "lg:w-[28%] md:w-[48.8%] w-[95%]" // First and third images take ~28% width
+                ? "lg:w-[28%] md:w-[48.8%] w-[95%]"
                 : door.id === 2
-                ? "xl:w-[41%] md:w-[48.8%] w-[95%]" // Second image takes ~44% width
+                ? "xl:w-[41%] md:w-[48.8%] w-[95%]"
                 : door.id === 4 || door.id === 6
-                ? "lg:w-[34%] md:w-[48.8%] w-[95%]" // Fourth and sixth images take ~36% width
-                : "xl:w-[29%] md:w-[48.8%] w-[95%]" // Adjust other images as necessary
+                ? "lg:w-[34%] md:w-[48.8%] w-[95%]"
+                : "xl:w-[29%] md:w-[48.8%] w-[95%]"
             }`}
           >
             <Image
@@ -95,7 +89,7 @@ export default function OurProjectGallery() {
                   {door.details}
                 </p>
                 <button className="px-[23px] py-[11.5px] w-fit bg-primaryColor uppercase text-white text-[14px] font-[500] leading-[21px] tracking-[2px] rounded-[10px] hover:bg-orange-600 transition-colors">
-                  View Details
+                  {t("OurProjectGallery.view_details")}
                 </button>
               </div>
             )}
@@ -104,7 +98,7 @@ export default function OurProjectGallery() {
       </div>
       <div className="flex justify-center mt-[45px] md:mt-[75px]">
         <button className="px-[35px] py-[13.5px] w-fit bg-primaryColor uppercase text-white text-[15px] font-[500] leading-[22.5px] tracking-[2px] rounded-[10px] hover:bg-orange-600 transition-colors">
-          View More
+          {t("OurProjectGallery.view_more")}
         </button>
       </div>
     </div>

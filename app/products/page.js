@@ -1,14 +1,17 @@
 import productData from "../../public/productData";
 import Link from "next/link";
 import React from "react";
+import { useTranslation } from "react-i18next"; // Import useTranslation
 
 const Products = () => {
+  const { t } = useTranslation(); // Initialize translation
+
   return (
     <section className="bg-[#FCF8F3]">
       <div className="pb-[65px] md:pb-[100px] pt-[100px] sm:pt-[150px] lg:pt-[180px] px-[18px] md:px-6 lg:px-8">
         <div className="max-w-[1280px] mx-auto">
           <h1 className="text-[30px] md:text-[40px] leading-[50px] tracking-[7%] font-[700] md:mb-[65px] mb-[30px] text-center uppercase">
-            Our Products
+            {t("Products.our_products")} {/* Translated heading */}
           </h1>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[9px] md:gap-x-[20px] md:gap-y-[60px] gap-y-[12.33px]">
             {productData.map((product) => (
@@ -35,7 +38,7 @@ const Products = () => {
                       ${product.price.toFixed(2)}
                     </div> */}
                     <button className="px-[10px] md:px-[15px] py-[8px] md:py-[12px] border-2 border-primaryColor text-primaryColor font-[600] text-[9px] md:text-[13px] leading-[13.5px] md:leading-[19.5px] uppercase rounded-[8px] hover:bg-orange-600 transition duration-300">
-                      Add to Cart
+                      {t("Products.add_to_cart")} {/* Translated button text */}
                     </button>
                   </div>
                 </div>

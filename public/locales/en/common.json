@@ -1,3 +1,121 @@
 {
-  "welcome_message": "Welcome"
+  "Header": {
+    "home": "Home",
+    "about_us": "About Us",
+    "our_products": "Our Products",
+    "our_projects": "Our Projects",
+    "portfolio": "Portfolio",
+    "contact_us": "Contact Us",
+    "project_1": "Project 1",
+    "project_2": "Project 2",
+    "project_3": "Project 3"
+  },
+  "Hero": {
+    "welcome_message": "Welcome to Kamelia doors",
+    "main_heading": "Build your dream home interior",
+    "subtext": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+    "order_now": "Order Now",
+    "take_measurements": "Take Measurements"
+  },
+  "Qualityies": {
+    "water_resistant": "Water Resistant",
+    "hammer_resistant": "Hammer Resistant",
+    "anti_bacterial": "Anti Bacterial",
+    "paint_and_maintenance": "Paint and Maintenance"
+  },
+  "WhoWeAre": {
+    "title": "Who we are",
+    "subtitle": "We are perfect for home interior doors",
+    "description": "At Kamelia Doors, we take pride in crafting the perfect doors to complement your home's interior. With a focus on quality, precision, and durability, our expert craftsmen ensure that every door is tailored to meet the highest standards. Whether you're looking to add a touch of elegance or a modern flair to your space, Kamelia Doors provides solutions that not only enhance the beauty of your home but also offer lasting value. Discover the art of fine interior doors with us.",
+    "learn_more": "Learn More"
+  },
+  "OurProjectGallery": {
+    "title": "Our Project Gallery",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accuium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
+    "door2": {
+      "title": "Door Name",
+      "details": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusium dolore..."
+    },
+    "view_details": "View Details",
+    "view_more": "View More"
+  },
+  "CustomizedDoors": {
+    "subtitle": "customized doors",
+    "title": "get your desired door designs",
+    "description": "Experience the freedom to design your ideal door with our custom solutions at Kamelia Doors. Whether you envision a sleek, modern style or a classic, timeless look, we bring your ideas to life with precision and care. Our range of customizable options allows you to choose the perfect finish, material, and design that matches your unique taste and home's aesthetic. Elevate your space with doors that are not only functional but also a true reflection of your personal style.",
+    "button": "Get now"
+  },
+  "DifferentWood": {
+    "different_wood_materials": "Different Wood Materials",
+    "wood_description": "Explore a rich palette of wood colors, each carefully selected to enhance the natural beauty of your doors and complement your interior design."
+  },
+  "AppointmentAboutUs": {
+    "appointment": "Appointment",
+    "book_appointment_with_expert": "Book Appointment with Our Expert",
+    "appointment_description": "Ready to take the next step in creating your perfect door? Book an appointment with our expert to get precise measurements taken right at your location. Our specialist will guide you through the process, ensuring that every detail is accounted for, from the dimensions to the design preferences, so you can achieve the exact look and fit you desire for your home.",
+    "book_free_appointment": "Book Your Free Appointment Now",
+    "take_measurements": "Take Measurements",
+    "who_are_kamelia": "Who Are Kamelia?",
+    "about_us": "About Us",
+    "kamelia_description_1": "Kamelia Doors is a company specializing in the manufacturing of custom interior doors according to precise specifications and measurements. Our production facility, covering over 6,500 square meters, is equipped with a comprehensive production line that meets your needs for both speed and quality.",
+    "kamelia_description_2": "We offer a wide range of doors in various styles and designs to satisfy diverse customer requirements, including interior doors, exterior doors, security doors, glass doors, and more.",
+    "exporting_abroad": "Exporting Abroad",
+    "appointment_alt": "Appointment Image",
+    "about_us_alt": "About Us Image",
+    "years": "Years",
+    "industry_experience": "Industry Experience",
+    "experience_description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accuium doloremque laudantium, totam rem aperiam.",
+    "products": "Products"
+  },
+  "FeaturedDoors": {
+    "featured_doors": "Featured Doors",
+    "featured_doors_description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accuium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+    "add_to_cart": "Add to Cart",
+    "view_more_doors": "View More Doors"
+  },
+  "GetInTouch": {
+    "get_in_touch": "Get in Touch",
+    "get_in_touch_description": "Need a custom quote or have questions? Fill out the form, and our team will get back to you quickly. We're here to help bring your vision to life.",
+    "name_placeholder": "Name *",
+    "phone_placeholder": "Phone",
+    "email_placeholder": "Email *",
+    "message_placeholder": "Message",
+    "get_free_quote": "Get a Free Quote"
+  },
+  "Footer": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "gallery": "Gallery",
+    "featured_doors": "Featured Doors",
+    "our_experts": "Our Experts",
+    "contact_us": "Contact Us",
+    "join_us": "Join Us",
+    "privacy_policy": "Privacy Policy",
+    "terms_condition": "Terms & Conditions",
+    "footer_rights": "Kamelia Doors @ 2024. All rights reserved."
+  },
+  "Related": {
+    "security_door": "Security Door",
+    "formica_door": "Formica Door",
+    "wooden_door": "Wooden Door",
+    "you_may_also_like": "You May Also Like"
+  },
+  "Additionalinfo": {
+    "additional_informations": "Additional Informations",
+    "material_options": "Material Options: Solid wood, engineered wood, MDF, and glass.",
+    "finish_choices": "Finish Choices: Matte, semi-gloss, high-gloss, and custom stains.",
+    "available_sizes": "Available Sizes: Standard and custom dimensions to fit any space.",
+    "hardware": "Hardware: Includes a selection of handles, hinges, and locks.",
+    "customization": "Customization: Personalized designs, engravings, and panel styles.",
+    "contact_us": "CONTACT US"
+  },
+  "ProductPage": {
+    "product_not_found": "Product not found",
+    "order_now": "ORDER NOW"
+  },
+  "Products": {
+    "our_products": "Our Products",
+    "add_to_cart": "Add to Cart"
+  }
 }

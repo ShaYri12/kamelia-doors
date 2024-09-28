@@ -6,6 +6,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
 import { EffectCoverflow, Pagination } from "swiper/modules";
+import { useTranslation } from "react-i18next";
 
 const woodMaterials = [
   "/assets/wood-1.png",
@@ -54,6 +55,7 @@ const CustomNextArrow = ({ onClick }) => {
 };
 
 export default function DifferentWood() {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const swiperRef = useRef(null);
 
@@ -65,12 +67,12 @@ export default function DifferentWood() {
     <div className="bg-[#FCF8F3] px-5 md:px-10 py-[40px] md:py-[80px] w-full">
       <div className="text-center">
         <h1 className="text-[#1B1717] text-[20px] sm:text-[40px] sm:leading-[50px] tracking-[7%] font-bold uppercase mb-2">
-          Different wood MATERIALS
+          {t("DifferentWood.different_wood_materials")}{" "}
+          {/* Translation key for heading */}
         </h1>
         <p className="max-w-[342px] sm:max-w-[999px] mx-auto w-full text-[#6E6E6E] text-[15px] sm:text-[17px] sm:leading-[25px] font-normal">
-          Explore a rich palette of wood colors, each carefully selected to
-          enhance the natural beauty of your doors and complement your interior
-          design.
+          {t("DifferentWood.wood_description")}{" "}
+          {/* Translation key for description */}
         </p>
       </div>
 

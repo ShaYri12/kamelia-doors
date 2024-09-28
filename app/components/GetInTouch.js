@@ -1,7 +1,7 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { useTranslation } from "react-i18next"; // Import useTranslation
 
 const containerStyle = {
   width: "100%",
@@ -24,6 +24,8 @@ const options = {
 };
 
 const GetInTouch = () => {
+  const { t } = useTranslation(); // Accessing translations from common.json
+
   return (
     <div
       id="contact"
@@ -32,41 +34,42 @@ const GetInTouch = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-[78px]">
         <div>
           <h2 className="md:text-left text-center uppercase text-[#1B1717] text-[30px] sm:text-[40px] leading-[50px] tracking-[0.07em] font-bold">
-            get in touch
+            {t("GetInTouch.get_in_touch")}{" "}
+            {/* Use translation for "Get in Touch" */}
           </h2>
           <p className="md:text-left text-center mx-auto mt-2 sm:mt-4 text-[#707070] text-[14px] sm:text-[16px] leading-[25px] font-normal max-w-[545px]">
-            Need a custom quote or have questions? Fill out the form, and our
-            team will get back to you quickly. We're here to help bring your
-            vision to life.
+            {t("GetInTouch.get_in_touch_description")}{" "}
+            {/* Use translation for description */}
           </p>
           <form className="mt-6 flex flex-col gap-4 sm:gap-5">
             <div className="flex items-center sm:flex-row flex-col  gap-4 sm:gap-5 justify-between">
               <input
                 type="text"
-                placeholder="Name *"
+                placeholder={t("GetInTouch.name_placeholder")} // Use translation for "Name *"
                 required
                 className="w-full border border-[#E0E0E0] py-3 px-5 rounded-xl outline-none"
               />
               <input
                 type="text"
-                placeholder="Phone"
+                placeholder={t("GetInTouch.phone_placeholder")} // Use translation for "Phone"
                 required
                 className="w-full border border-[#E0E0E0] py-3 px-5 rounded-xl outline-none"
               />
             </div>
             <input
               type="email"
-              placeholder="Email *"
+              placeholder={t("GetInTouch.email_placeholder")} // Use translation for "Email *"
               required
               className="w-full border border-[#E0E0E0] py-3 px-5 rounded-xl outline-none"
             />
             <textarea
-              placeholder="Message"
+              placeholder={t("GetInTouch.message_placeholder")} // Use translation for "Message"
               required
               className="w-full border border-[#E0E0E0] py-3 px-5 rounded-xl outline-none h-[167px] resize-none"
             />
             <button className="mt-[20px] lg:mt-[45px] bg-[#EE7922] text-white py-3 px-10 rounded-xl uppercase text-[16px] sm:text-[18px] leading-[27px] font-semibold tracking-[0.1em]">
-              get a free quote
+              {t("GetInTouch.get_free_quote")}{" "}
+              {/* Use translation for "Get a Free Quote" */}
             </button>
           </form>
         </div>

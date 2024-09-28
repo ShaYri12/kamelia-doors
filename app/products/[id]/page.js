@@ -1,12 +1,14 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation"; // To get the current path
 import productData from "../../../public/productData";
 import Qualityies from "../../components/Qualityies";
 import Additionalinfo from "./Additionalinfo";
 import Related from "./Related";
+import { useTranslation } from "react-i18next"; // Import useTranslation
 
 const ProductPage = () => {
+  const { t } = useTranslation(); // Initialize translation
   const pathname = usePathname(); // Get the path
   const id = parseInt(pathname.split("/").pop()); // Get the last part of the URL and convert to number
 
@@ -17,7 +19,7 @@ const ProductPage = () => {
 
   // If product is not found, handle the case
   if (!product) {
-    return <div>Product not found</div>;
+    return <div>{t("ProductPage.product_not_found")}</div>; // Translated message
   }
 
   return (
@@ -79,7 +81,7 @@ const ProductPage = () => {
 
             {/* Order Button */}
             <button className="mt-[40px] md:mt-[47px] px-[49px] py-[14px] w-fit bg-primaryColor uppercase text-white text-[15px] font-[500] leading-[16.5px] rounded-[5px] hover:bg-orange-600 transition-colors">
-              ORDER NOW
+              {t("ProductPage.order_now")} {/* Translated button text */}
             </button>
           </div>
         </div>
