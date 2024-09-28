@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import { useTranslation } from "react-i18next";
+import { i18n } from "next-i18next";
 
 const woodMaterials = [
   "/assets/wood-1.png",
@@ -64,7 +65,10 @@ export default function DifferentWood() {
   };
 
   return (
-    <div className="bg-[#FCF8F3] px-5 md:px-10 py-[40px] md:py-[80px] w-full">
+    <div
+      dir="ltr"
+      className="bg-[#FCF8F3] px-5 md:px-10 py-[40px] md:py-[80px] w-full"
+    >
       <div className="text-center">
         <h1 className="text-[#1B1717] text-[20px] sm:text-[40px] sm:leading-[50px] tracking-[7%] font-bold uppercase mb-2">
           {t("DifferentWood.different_wood_materials")}{" "}

@@ -11,8 +11,8 @@ export default function OurProjectGallery() {
     {
       id: 2,
       src: "/assets/project-gallery-2.png",
-      title: t("door2.title"),
-      details: t("door2.details"),
+      title: t("OurProjectGallery.door2.title"),
+      details: t("OurProjectGallery.door2.details"),
     },
     { id: 3, src: "/assets/project-gallery-3.png" },
     { id: 4, src: "/assets/project-gallery-4.png" },

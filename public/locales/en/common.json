@@ -83,6 +83,8 @@
     "get_free_quote": "Get a Free Quote"
   },
   "Footer": {
+    "pages": "Pages",
+    "others": "Others",
     "home": "Home",
     "about": "About",
     "products": "Products",
