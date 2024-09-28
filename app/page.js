@@ -8,10 +8,8 @@ import Hero from "./components/Hero";
 import OurProjectGallery from "./components/OurProjectGallery";
 import Qualityies from "./components/Qualityies";
 import WhoWeAre from "./components/WhoWeAre";
-import { useTranslation } from "react-i18next";
 
 export default function Home() {
-  const { t } = useTranslation();
   return (
     <div>
       <Hero />

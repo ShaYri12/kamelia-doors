@@ -1,3 +1,4 @@
+"use client";
 import productData from "../../public/productData";
 import Link from "next/link";
 import React from "react";
