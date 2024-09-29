@@ -1,11 +1,17 @@
 "use client";
+import i18n from "@/public/locales/i18n";
 import productData from "../../public/productData";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next"; // Import useTranslation
 
 const Products = () => {
-  const { t } = useTranslation(); // Initialize translation
+  const { t } = useTranslation();
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") || "en";
+    i18n.changeLanguage(savedLanguage);
+    document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
+  }, []);
 
   return (
     <section className="bg-[#FCF8F3]">

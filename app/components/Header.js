@@ -5,7 +5,8 @@ import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { IoIosArrowDown } from "react-icons/io";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { useTranslation } from "react-i18next"; // Import useTranslation
+import { useTranslation } from "react-i18next";
+import i18n from "../../public/locales/i18n";
 
 const Header = () => {
   const { t } = useTranslation(); // Initialize translation hook
@@ -15,6 +16,12 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") || "en";
+    i18n.changeLanguage(savedLanguage);
+    document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

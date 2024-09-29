@@ -1,16 +1,22 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation"; // To get the current path
 import productData from "../../../public/productData";
 import Qualityies from "../../components/Qualityies";
 import Additionalinfo from "./Additionalinfo";
 import Related from "./Related";
 import { useTranslation } from "react-i18next"; // Import useTranslation
+import i18n from "@/public/locales/i18n";
 
 const ProductPage = () => {
   const { t } = useTranslation(); // Initialize translation
   const pathname = usePathname(); // Get the path
-  const id = parseInt(pathname.split("/").pop()); // Get the last part of the URL and convert to number
+  const id = parseInt(pathname.split("/").pop());
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") || "en";
+    i18n.changeLanguage(savedLanguage);
+    document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
+  }, []);
 
   // Find the product by id
   const product = productData.find((p) => p.id === id);

@@ -8,10 +8,17 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { ImFacebook } from "react-icons/im";
-import { useTranslation } from "react-i18next"; // Import useTranslation
+import { useTranslation } from "react-i18next";
+import i18n from "../../public/locales/i18n";
+import { useEffect } from "react";
 
 const Footer = () => {
-  const { t } = useTranslation(); // Initialize translation hook
+  const { t } = useTranslation();
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") || "en";
+    i18n.changeLanguage(savedLanguage);
+    document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
+  }, []);
 
   return (
     <footer className="bg-[#FCF8F3] w-full">
