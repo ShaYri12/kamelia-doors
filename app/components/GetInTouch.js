@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
-import { useTranslation } from "react-i18next"; // Import useTranslation
+import { useTranslation } from "react-i18next";
+import i18n from "../../public/locales/i18n";
 
 const containerStyle = {
   width: "100%",
@@ -24,7 +25,8 @@ const options = {
 };
 
 const GetInTouch = () => {
-  const { t } = useTranslation(); // Accessing translations from common.json
+  const { t } = useTranslation();
+  const currentLanguage = i18n?.language || "en";
 
   return (
     <div
@@ -33,11 +35,19 @@ const GetInTouch = () => {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-[78px]">
         <div>
-          <h2 className="md:text-left text-center uppercase text-[#1B1717] text-[30px] sm:text-[40px] leading-[50px] tracking-[0.07em] font-bold">
+          <h2
+            className={`${
+              currentLanguage === "ar" ? "md:text-right" : "md:text-left"
+            } text-center uppercase text-[#1B1717] text-[30px] sm:text-[40px] leading-[50px] tracking-[0.07em] font-bold`}
+          >
             {t("GetInTouch.get_in_touch")}{" "}
             {/* Use translation for "Get in Touch" */}
           </h2>
-          <p className="md:text-left text-center mx-auto mt-2 sm:mt-4 text-[#707070] text-[14px] sm:text-[16px] leading-[25px] font-normal max-w-[545px]">
+          <p
+            className={`${
+              currentLanguage === "ar" ? "md:text-right" : "md:text-left"
+            } text-center mx-auto mt-2 sm:mt-4 text-[#707070] text-[14px] sm:text-[16px] leading-[25px] font-normal max-w-[545px]`}
+          >
             {t("GetInTouch.get_in_touch_description")}{" "}
             {/* Use translation for description */}
           </p>

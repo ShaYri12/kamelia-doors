@@ -1,8 +1,10 @@
 import React from "react";
-import { useTranslation } from "react-i18next"; // Import the useTranslation hook
+import { useTranslation } from "react-i18next";
+import i18n from "../../../public/locales/i18n";
 
 const Additionalinfo = () => {
-  const { t } = useTranslation(); // Initialize translation
+  const { t } = useTranslation();
+  const currentLanguage = i18n?.language || "en";
 
   return (
     <section className="px-[18px] md:px-6 lg:px-8 bg-[#FAFAFA] relative">
@@ -34,7 +36,11 @@ const Additionalinfo = () => {
             {t("Additionalinfo.contact_us")} {/* Translated button text */}
           </button>
         </div>
-        <div className="max-h-[682px] h-full absolute right-[28px] top-0 z-[10] md:flex hidden">
+        <div
+          className={` ${
+            currentLanguage === "ar" ? "left-[28px]" : "right-[28px]"
+          } max-h-[682px] h-full absolute top-0 z-[10] md:flex hidden`}
+        >
           <img
             src="/assets/diagonal-orange.png"
             alt="vector"

@@ -5,9 +5,11 @@ import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { useTranslation } from "react-i18next"; // Import the useTranslation hook
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import i18n from "../../../public/locales/i18n";
 
 const Related = () => {
-  const { t } = useTranslation(); // Initialize translation
+  const { t } = useTranslation();
+  const currentLanguage = i18n?.language || "en";
 
   const products = [
     {
@@ -100,28 +102,9 @@ const Related = () => {
 
 const SampleNextArrow = (props) => {
   const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} custom-arrow`}
-      style={{
-        ...style,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        cursor: "pointer",
-        width: "70px",
-        height: "70px",
-        background: "transparent",
-      }}
-      onClick={onClick}
-    >
-      <IoIosArrowDroprightCircle size={40} color="#EE7922" />
-    </div>
-  );
-};
+  const { i18n } = useTranslation(); // Access the current language
+  const currentLanguage = i18n.language;
 
-const SamplePrevArrow = (props) => {
-  const { className, style, onClick } = props;
   return (
     <div
       className={`${className} custom-arrow`}
@@ -140,7 +123,40 @@ const SamplePrevArrow = (props) => {
       <IoIosArrowDroprightCircle
         size={40}
         color="#EE7922"
-        style={{ transform: "rotate(180deg)" }}
+        style={{
+          transform: currentLanguage === "ar" ? "rotate(180deg)" : "none",
+        }} // Mirror the icon if language is Arabic
+      />
+    </div>
+  );
+};
+
+const SamplePrevArrow = (props) => {
+  const { className, style, onClick } = props;
+  const { i18n } = useTranslation(); // Access the current language
+  const currentLanguage = i18n.language;
+
+  return (
+    <div
+      className={`${className} custom-arrow`}
+      style={{
+        ...style,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        cursor: "pointer",
+        width: "70px",
+        height: "70px",
+        background: "transparent",
+      }}
+      onClick={onClick}
+    >
+      <IoIosArrowDroprightCircle
+        size={40}
+        color="#EE7922"
+        style={{
+          transform: currentLanguage === "ar" ? "none" : "rotate(180deg)",
+        }} // Rotate or mirror the icon depending on the language
       />
     </div>
   );
