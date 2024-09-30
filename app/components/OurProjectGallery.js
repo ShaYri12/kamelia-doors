@@ -32,13 +32,13 @@ export default function OurProjectGallery() {
       }
     };
 
-    updateDoors();
+    updateDoors(); // Initial call to set the doors
     window.addEventListener("resize", updateDoors);
 
     return () => {
       window.removeEventListener("resize", updateDoors);
     };
-  }, [allDoors]);
+  }, []); // Empty dependency array to avoid re-triggering
 
   return (
     <div
