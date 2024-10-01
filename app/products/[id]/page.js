@@ -133,7 +133,16 @@ const ProductPage = () => {
                   key={index}
                   className="w-[41.67px] h-[40.64px] rounded-[4px] border-2 border-transparent hover:border-primaryColor cursor-pointer"
                   style={{
-                    backgroundColor: color.color_name || "#ccc", // Change the background color based on color_name
+                    backgroundColor:
+                      color.color_name === "black"
+                        ? "#262626"
+                        : color.color_name === "grey"
+                        ? "#9B9D97"
+                        : color.color_name === "white"
+                        ? "#E8E0D7"
+                        : color.color_name === "brown"
+                        ? "#5F4A42"
+                        : color.color_name || "#ccc", // Default color
                   }}
                 ></span>
               ))}
