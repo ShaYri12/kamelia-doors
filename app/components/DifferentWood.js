@@ -1,21 +1,12 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import { useTranslation } from "react-i18next";
-import { i18n } from "next-i18next";
-
-const woodMaterials = [
-  "/assets/wood-1.png",
-  "/assets/wood-2.png",
-  "/assets/wood-3.png",
-  "/assets/wood-2.png",
-  "/assets/wood-3.png",
-];
+import { BASE_URL } from "../config";
 
 // Custom Previous Arrow
 const CustomPrevArrow = ({ onClick }) => {
@@ -58,11 +49,37 @@ const CustomNextArrow = ({ onClick }) => {
 export default function DifferentWood() {
   const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [materials, setMaterials] = useState([]);
   const swiperRef = useRef(null);
 
   const handleSlideChange = (swiper) => {
     setCurrentSlide(swiper.realIndex); // Use realIndex for looping
   };
+
+  // Fetch materials from the API
+  useEffect(() => {
+    const fetchMaterials = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/materials-list`);
+        let data = await response.json();
+
+        // If materials are less than 5, clone them until there are 5
+        if (data.length < 5) {
+          const clones = [];
+          while (data.length + clones.length < 5) {
+            clones.push(...data.slice(0, 5 - data.length - clones.length));
+          }
+          data = [...data, ...clones];
+        }
+
+        setMaterials(data); // Set the processed materials
+      } catch (error) {
+        console.error("Error fetching materials:", error);
+      }
+    };
+
+    fetchMaterials();
+  }, []);
 
   return (
     <div
@@ -71,12 +88,10 @@ export default function DifferentWood() {
     >
       <div className="text-center">
         <h1 className="text-[#1B1717] text-[20px] sm:text-[40px] sm:leading-[50px] tracking-[7%] font-bold uppercase mb-2">
-          {t("DifferentWood.different_wood_materials")}{" "}
-          {/* Translation key for heading */}
+          {t("DifferentWood.different_wood_materials")}
         </h1>
         <p className="max-w-[342px] sm:max-w-[999px] mx-auto w-full text-[#6E6E6E] text-[15px] sm:text-[17px] sm:leading-[25px] font-normal">
-          {t("DifferentWood.wood_description")}{" "}
-          {/* Translation key for description */}
+          {t("DifferentWood.wood_description")}
         </p>
       </div>
 
@@ -102,14 +117,14 @@ export default function DifferentWood() {
           ref={swiperRef}
           className="mySwiper"
         >
-          {woodMaterials.map((material, index) => (
+          {materials.map((material) => (
             <SwiperSlide
-              key={index}
+              key={material.id}
               className="object-cover h-[420.23px] w-[401.55px]"
             >
               <img
-                src={material}
-                alt={`Wood Material ${index + 1}`}
+                src={material.image}
+                alt={material.name}
                 className="object-cover rounded-[18.68px] h-[420.23px] w-[401.55px] transition-all duration-500"
               />
             </SwiperSlide>
@@ -121,7 +136,7 @@ export default function DifferentWood() {
 
         {/* Custom Pagination Dots */}
         <div className="flex justify-center items-center mt-8 sm:mt-14 gap-3 sm:gap-4">
-          {woodMaterials.map((_, index) => (
+          {materials.map((_, index) => (
             <button
               key={index}
               className={`rounded-[7.5px] h-[10px] md:h-[14px] transition-all ${
@@ -129,7 +144,7 @@ export default function DifferentWood() {
                   ? "bg-[#EE7922] w-[50px] md:w-[70px]"
                   : "bg-[#F8D3B6] w-[23px]"
               }`}
-              onClick={() => swiperRef.current.swiper.slideToLoop(index)} // Use slideToLoop for looped slides
+              onClick={() => swiperRef.current.swiper.slideToLoop(index)}
             ></button>
           ))}
         </div>
