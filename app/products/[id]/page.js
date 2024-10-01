@@ -1,31 +1,80 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation"; // To get the current path
-import productData from "../../../public/productData";
 import Qualityies from "../../components/Qualityies";
 import Additionalinfo from "./Additionalinfo";
 import Related from "./Related";
 import { useTranslation } from "react-i18next"; // Import useTranslation
 import i18n from "@/public/locales/i18n";
+import { BASE_URL } from "@/app/config";
 
 const ProductPage = () => {
   const { t } = useTranslation(); // Initialize translation
   const pathname = usePathname(); // Get the path
   const id = parseInt(pathname.split("/").pop());
+
+  const [product, setProduct] = useState(null);
+  const [image, setImage] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
+    // Get language from localStorage
     const savedLanguage = localStorage.getItem("language") || "en";
-    i18n.changeLanguage(savedLanguage);
-    document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
-  }, []);
 
-  // Find the product by id
-  const product = productData.find((p) => p.id === id);
+    // Set language and document direction only if it has changed
+    if (i18n.language !== savedLanguage) {
+      i18n.changeLanguage(savedLanguage);
+      document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
+    }
 
-  const [image, setImage] = useState(1);
+    // Check if the id is valid before attempting to fetch
+    if (id) {
+      const fetchProduct = async () => {
+        try {
+          const response = await fetch(`${BASE_URL}/doors-detail/${id}`);
+          if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+          }
+          const data = await response.json();
+          setProduct(data);
+          setLoading(false);
+        } catch (err) {
+          console.error("Error fetching product details:", err);
+          setError(t("ProductPage.error_loading_product"));
+          setLoading(false);
+        }
+      };
 
-  // If product is not found, handle the case
+      fetchProduct();
+    } else {
+      console.error("Invalid product ID:", id);
+    }
+  }, [id, t]); // Only dependencies are id and t
+
+  if (loading) {
+    return (
+      <div className="pb-[38px] pt-[150px] lg:pt-[223px] px-[18px] md:px-6 lg:px-8">
+        Loading...
+      </div>
+    ); // Show loading message
+  }
+
+  if (error) {
+    return (
+      <div className="pb-[38px] pt-[150px] lg:pt-[223px] px-[18px] md:px-6 lg:px-8">
+        {error}
+      </div>
+    ); // Show error message if something went wrong
+  }
+
+  // If product is not found or invalid
   if (!product) {
-    return <div>{t("ProductPage.product_not_found")}</div>; // Translated message
+    return (
+      <div className="pb-[38px] pt-[150px] lg:pt-[223px] px-[18px] md:px-6 lg:px-8">
+        Not Found
+      </div>
+    ); // Translated message
   }
 
   return (
@@ -36,8 +85,8 @@ const ProductPage = () => {
           <div className="lg:w-[50%] flex flex-col justify-center">
             <div className="rounded-[17px] bg-[#E8E0D7] flex items-center justify-center h-[508px]">
               <img
-                src={product.images[image - 1]}
-                alt={`Product Image ${image}`}
+                src={product.images[image]?.image || ""}
+                alt={`Product Image ${image + 1}`}
                 className="rounded-md object-contain h-full"
               />
             </div>
@@ -46,13 +95,13 @@ const ProductPage = () => {
               {product.images.map((img, index) => (
                 <button
                   key={index}
-                  onClick={() => setImage(index + 1)}
+                  onClick={() => setImage(index)}
                   className={`focus:outline-none rounded-md h-[125px] w-[155px] ${
-                    image === index + 1 ? "border border-primaryColor" : ""
+                    image === index ? "border border-primaryColor" : ""
                   } flex items-center justify-center`}
                 >
                   <img
-                    src={img}
+                    src={img.image}
                     alt={`Thumbnail ${index + 1}`}
                     className="object-cover h-full w-full rounded-md"
                   />
@@ -64,7 +113,7 @@ const ProductPage = () => {
           {/* Details Section */}
           <div className="lg:w-[50%] flex flex-col justify-start pt-[35px]">
             <h3 className="text-primaryColor text-[11px] leading-[12.1px] uppercase font-[500]">
-              {product.category}
+              {t("ProductPage.door_category")}
             </h3>
             <h1 className="text-[34px] md:text-[40px] font-[500] leading-[44px] text-blackish mt-[8px] md:mt-[17px]">
               {product.name}
@@ -74,15 +123,20 @@ const ProductPage = () => {
             </p>
 
             <p className="text-primaryColor text-[28px] md:text-[36px] leading-[30px] md:leading-[39.6px] font-[500] mt-[17px]">
-              {product.jd}
+              1000 JD
             </p>
 
             {/* Color Options */}
             <div className="flex space-x-4 mt-[16px] md:mt-[23px]">
-              <span className="w-[41.67px] h-[40.64px] bg-[#5F4A42] rounded-[4px] border-2 border-transparent hover:border-primaryColor cursor-pointer"></span>
-              <span className="w-[41.67px] h-[40.64px] bg-[#262626] rounded-[4px] border-2 border-transparent hover:border-primaryColor cursor-pointer"></span>
-              <span className="w-[41.67px] h-[40.64px] bg-[#9B9D97] rounded-[4px] border-2 border-transparent hover:border-primaryColor cursor-pointer"></span>
-              <span className="w-[41.67px] h-[40.64px] bg-[#E8E0D7] rounded-[4px] border-2 border-transparent hover:border-primaryColor cursor-pointer"></span>
+              {product.colors.map((color, index) => (
+                <span
+                  key={index}
+                  className="w-[41.67px] h-[40.64px] rounded-[4px] border-2 border-transparent hover:border-primaryColor cursor-pointer"
+                  style={{
+                    backgroundColor: color.color_name || "#ccc", // Change the background color based on color_name
+                  }}
+                ></span>
+              ))}
             </div>
 
             {/* Order Button */}
@@ -92,7 +146,7 @@ const ProductPage = () => {
           </div>
         </div>
       </div>
-      <Additionalinfo />
+      <Additionalinfo product={product} />
       <Related />
       <Qualityies />
     </section>

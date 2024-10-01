@@ -1,16 +1,31 @@
 "use client";
 import i18n from "@/public/locales/i18n";
-import productData from "../../public/productData";
 import Link from "next/link";
-import React, { useEffect } from "react";
-import { useTranslation } from "react-i18next"; // Import useTranslation
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { BASE_URL } from "../config";
 
 const Products = () => {
   const { t } = useTranslation();
+  const [products, setProducts] = useState([]);
+
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") || "en";
     i18n.changeLanguage(savedLanguage);
     document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
+
+    // Fetch data from the API
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/doors-list/`);
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
@@ -21,11 +36,11 @@ const Products = () => {
             {t("Products.our_products")} {/* Translated heading */}
           </h1>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[9px] md:gap-x-[20px] md:gap-y-[60px] gap-y-[12.33px]">
-            {productData.map((product) => (
+            {products.map((product) => (
               <div key={product.id} className="overflow-hidden">
                 <Link href={`/products/${product.id}`}>
                   <img
-                    src={product.imageUrl}
+                    src={product.images[0]?.image || "/placeholder.jpg"}
                     alt={product.name}
                     className="w-full h-[202.91px] md:h-[300px] object-cover rounded-[12px]"
                   />
@@ -41,9 +56,6 @@ const Products = () => {
                     {product.description}
                   </p>
                   <div className="flex justify-between flex-wrap items-center mt-[20px] md:mt-[30px] gap-1">
-                    {/* <div className="font-[500] text-[14px] md:text-[22px] text-blackish">
-                      ${product.price.toFixed(2)}
-                    </div> */}
                     <button className="px-[10px] md:px-[15px] py-[8px] md:py-[12px] border-2 border-primaryColor text-primaryColor font-[600] text-[9px] md:text-[13px] leading-[13.5px] md:leading-[19.5px] uppercase rounded-[8px] hover:bg-orange-600 transition duration-300">
                       {t("Products.add_to_cart")} {/* Translated button text */}
                     </button>
