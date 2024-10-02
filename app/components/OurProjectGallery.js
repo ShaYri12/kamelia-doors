@@ -1,44 +1,67 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import { BASE_URL } from "../config";
 
 export default function OurProjectGallery() {
   const { t } = useTranslation();
 
-  const allDoors = [
-    { id: 1, src: "/assets/project-gallery-1.png" },
-    {
-      id: 2,
-      src: "/assets/project-gallery-2.png",
-      title: t("OurProjectGallery.door2.title"),
-      details: t("OurProjectGallery.door2.details"),
-    },
-    { id: 3, src: "/assets/project-gallery-3.png" },
-    { id: 4, src: "/assets/project-gallery-4.png" },
-    { id: 5, src: "/assets/project-gallery-5.png" },
-    { id: 6, src: "/assets/project-gallery-6.png" },
-  ];
+  const [projects, setProjects] = useState([]);
+  const [activeProjectId, setActiveProjectId] = useState(2); // Default to show second project
+  const [filteredProjects, setFilteredProjects] = useState([]);
 
-  const [doors, setDoors] = useState(allDoors);
-
+  // Fetching the project data from the API
   useEffect(() => {
-    const updateDoors = () => {
-      if (window.innerWidth < 768) {
-        const filteredDoors = allDoors.filter((door) => door.id !== 1);
-        setDoors(filteredDoors.slice(0, 3)); // Show the first 3 images excluding the first image
-      } else {
-        setDoors(allDoors); // Show all images
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/projects-list/`);
+        const data = await response.json();
+
+        // Set fetched data to projects
+        setProjects(data);
+        setFilteredProjects(data); // Initially set filteredProjects to all fetched projects
+      } catch (error) {
+        console.error("Error fetching project data:", error);
       }
     };
 
-    updateDoors(); // Initial call to set the doors
-    window.addEventListener("resize", updateDoors);
+    fetchProjects();
+  }, []);
+
+  // Responsive image filtering logic
+  useEffect(() => {
+    const updateProjects = () => {
+      if (window.innerWidth < 768) {
+        const filtered = projects.filter((project) => project.id !== 1);
+        setFilteredProjects(filtered.slice(0, 3)); // Show the first 3 images excluding the first image
+      } else {
+        setFilteredProjects(projects); // Show all images on larger screens
+      }
+    };
+
+    updateProjects(); // Initial call to set the filtered projects based on screen size
+    window.addEventListener("resize", updateProjects);
 
     return () => {
-      window.removeEventListener("resize", updateDoors);
+      window.removeEventListener("resize", updateProjects);
     };
-  }, []); // Empty dependency array to avoid re-triggering
+  }, [projects]);
+
+  const handleProjectClick = (id) => {
+    if (activeProjectId === id) {
+      setActiveProjectId(2); // Reset to second project if the same image is clicked
+    } else {
+      setActiveProjectId(id); // Set the clicked project as active
+    }
+  };
+
+  const handleMouseEnter = (id) => {
+    setActiveProjectId(id); // Set active project on hover
+  };
+
+  const handleMouseLeave = () => {
+    setActiveProjectId(2); // Reset to second project when mouse leaves
+  };
 
   return (
     <div
@@ -54,27 +77,29 @@ export default function OurProjectGallery() {
         </p>
       </div>
       <div className="max-w-[1160px] mx-auto flex flex-wrap md:flex-row flex-col justify-center gap-[16px]">
-        {doors.map((door) => (
+        {filteredProjects.map((project) => (
           <div
-            key={door.id}
-            className={`relative rounded-[20px] overflow-hidden shadow-md md:h-[350px] h-[276px] sm:min-w-[300px] min-w-[284px] md:mx-0 mx-auto ${
-              door.id === 1 || door.id === 3
+            key={project.id}
+            onClick={() => handleProjectClick(project.id)}
+            onMouseEnter={() => handleMouseEnter(project.id)} // Set active project on hover
+            onMouseLeave={handleMouseLeave} // Reset on mouse leave
+            className={`relative rounded-[20px] overflow-hidden shadow-md md:h-[350px] h-[276px] sm:min-w-[300px] min-w-[284px] md:mx-0 mx-auto cursor-pointer group ${
+              project.id === 1 || project.id === 3
                 ? "lg:w-[28%] md:w-[48.8%] w-[95%]"
-                : door.id === 2
+                : project.id === 2
                 ? "xl:w-[41%] md:w-[48.8%] w-[95%]"
-                : door.id === 4 || door.id === 6
+                : project.id === 4 || project.id === 6
                 ? "lg:w-[34%] md:w-[48.8%] w-[95%]"
                 : "xl:w-[29%] md:w-[48.8%] w-[95%]"
             }`}
           >
-            <Image
-              src={door.src}
-              alt={door.title}
+            <img
+              src={project.main_image}
+              alt={project.title}
               className="w-full h-full object-cover"
-              width={400}
-              height={400}
             />
-            {door.details && (
+            {/* Show details for the active project */}
+            {activeProjectId === project.id && (
               <div
                 className="absolute inset-0 text-white p-[24px] flex flex-col justify-end items-center"
                 style={{
@@ -83,10 +108,10 @@ export default function OurProjectGallery() {
                 }}
               >
                 <h2 className="md:text-[26px] text-[22px] leading-[24px] font-[600] text-white">
-                  {door.title}
+                  {project.name}
                 </h2>
                 <p className="md:mt-[11px] mt-[9px] mb-[19px] md:mb-[30px] md:text-[14px] text-[10px] font-[400] text-center">
-                  {door.details}
+                  {project.description}
                 </p>
                 <button className="px-[23px] py-[11.5px] w-fit bg-primaryColor uppercase text-white text-[14px] font-[500] leading-[21px] tracking-[2px] rounded-[10px] hover:bg-orange-600 transition-colors">
                   {t("OurProjectGallery.view_details")}
