@@ -7,6 +7,7 @@ import Related from "./Related";
 import { useTranslation } from "react-i18next"; // Import useTranslation
 import i18n from "@/public/locales/i18n";
 import { BASE_URL } from "@/app/config";
+import Link from "next/link";
 
 const ProductPage = () => {
   const { t } = useTranslation(); // Initialize translation
@@ -129,22 +130,23 @@ const ProductPage = () => {
             {/* Color Options */}
             <div className="flex space-x-4 mt-[16px] md:mt-[23px]">
               {product.colors.map((color, index) => (
-                <span
-                  key={index}
-                  className="w-[41.67px] h-[40.64px] rounded-[4px] border-2 border-transparent hover:border-primaryColor cursor-pointer"
-                  style={{
-                    backgroundColor:
-                      color.color_name === "black"
-                        ? "#262626"
-                        : color.color_name === "grey"
-                        ? "#9B9D97"
-                        : color.color_name === "white"
-                        ? "#E8E0D7"
-                        : color.color_name === "brown"
-                        ? "#5F4A42"
-                        : color.color_name || "#ccc", // Default color
-                  }}
-                ></span>
+                <Link href="/#different-wood" key={index}>
+                  <span
+                    className="w-[41.67px] h-[40.64px] rounded-[4px] border-2 border-transparent hover:border-primaryColor cursor-pointer"
+                    style={{
+                      backgroundColor:
+                        color.color_name === "black"
+                          ? "#262626"
+                          : color.color_name === "grey"
+                          ? "#9B9D97"
+                          : color.color_name === "white"
+                          ? "#E8E0D7"
+                          : color.color_name === "brown"
+                          ? "#5F4A42"
+                          : color.color_name || "#ccc", // Default color
+                    }}
+                  ></span>
+                </Link>
               ))}
             </div>
 

@@ -1,4 +1,3 @@
-"use client";
 import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -81,8 +80,16 @@ export default function DifferentWood() {
     fetchMaterials();
   }, []);
 
+  // Set the first slide as active after Swiper initializes
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideTo(2, 0); // Slide to the first image
+    }
+  }, [materials]); // Runs when materials are fetched
+
   return (
     <div
+      id="different-wood"
       dir="ltr"
       className="bg-[#FCF8F3] px-5 md:px-10 py-[40px] md:py-[80px] w-full"
     >

@@ -58,6 +58,10 @@ html {
   display: none !important; /* Hide default slick buttons */
 }
 
+.slick-arrow.slick-next.custom-arrow::before {
+  display: none;
+}
+
 .slick-dots li .dot {
   border: 1px solid transparent; /* No border for inactive */
 }

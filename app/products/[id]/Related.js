@@ -81,9 +81,9 @@ const Related = () => {
               <img
                 src={product.images[0]?.image} // Access the first image
                 alt={product.name}
-                className="mx-auto h-[457px] object-contain"
+                className="mx-auto lg:max-w-[290px] max-w-[210px] h-full object-contain"
               />
-              <div className="lg:max-w-[240px] max-w-[210px] w-full mx-auto mt-[18px]">
+              <div className="lg:max-w-[290px] max-w-[210px] w-full mx-auto mt-[18px]">
                 <h3 className="text-[24px] font-[500] leading-[26.4px] text-black">
                   {currentLanguage === "ar" && product.name_ar
                     ? product.name_ar // Use Arabic name if available
