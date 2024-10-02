@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next"; // Import useTranslation
 import { BASE_URL } from "../config";
 
 const FeaturedDoors = () => {
-  const { t } = useTranslation(); // Accessing translations from common.json
+  const { t , i18n } = useTranslation(); // Accessing translations from common.json
   const [doors, setDoors] = useState([]); // State to store fetched doors data
 
   useEffect(() => {
@@ -49,21 +49,21 @@ const FeaturedDoors = () => {
                     className="w-full h-[202.91px] md:h-[300px] object-cover rounded-[12px]"
                   />
                 </Link>
-                <div className="px-[6px] md:px-[9px] pt-[12px] md:pt-[26px] text-left">
+                <div className="px-[6px] md:px-[9px] pt-[12px] md:pt-[26px]">
                   <Link href={`/products/${door.id}`}>
                     <h2 className="text-[13px] sm:text-[20px] md:text-[24px] leading-[18px] md:leading-[25px] font-[500] mb-[8px] text-blackish line-clamp-2">
-                      {door.name}
+                      {i18n.language == "en" ? door.name : door.name_ar}
                     </h2>
                   </Link>
 
                   <p className="text-grayish line-clamp-2 text-[8px] md:text-[13px] font-[400] md:mt-[15px] mt-[-2px]">
                     {door.description}
                   </p>
-                  <div className="flex justify-between flex-wrap items-center mt-[20px] md:mt-[30px] gap-1">
-                    <button className="px-[10px] md:px-[15px] py-[8px] md:py-[12px] border-2 border-primaryColor text-primaryColor hover:text-white font-[600] text-[9px] md:text-[13px] leading-[13.5px] md:leading-[19.5px] uppercase rounded-[8px] hover:bg-orange-600 transition duration-300">
+                  <div className="flex justify-between flex-wrap items-center mt-[20px] md:mt-[30px] gap-1 w-full">
+                    <Link href={`/products/${door.id}`} className="w-full text-center px-[10px] md:px-[15px] py-[8px] md:py-[12px] border-2 border-primaryColor text-primaryColor hover:text-white font-[600] text-[9px] md:text-[13px] leading-[13.5px] md:leading-[19.5px] uppercase rounded-[8px] hover:bg-orange-600 transition duration-300">
                       {t("FeaturedDoors.add_to_cart")}{" "}
                       {/* Use translation for "Add to Cart" */}
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

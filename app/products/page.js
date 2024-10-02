@@ -20,6 +20,7 @@ const Products = () => {
         const response = await fetch(`${BASE_URL}/doors-list/`);
         const data = await response.json();
         setProducts(data);
+        console.log(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -40,7 +41,7 @@ const Products = () => {
               <div key={product.id} className="overflow-hidden">
                 <Link href={`/products/${product.id}`}>
                   <img
-                    src={product.images[0]?.image || "/placeholder.jpg"}
+                    src={product?.image || "/placeholder.jpg"}
                     alt={product.name}
                     className="w-full h-[202.91px] md:h-[300px] object-cover rounded-[12px]"
                   />
@@ -56,9 +57,9 @@ const Products = () => {
                     {product.description}
                   </p>
                   <div className="flex justify-between flex-wrap items-center mt-[20px] md:mt-[30px] gap-1">
-                    <button className="px-[10px] md:px-[15px] py-[8px] md:py-[12px] border-2 border-primaryColor text-primaryColor font-[600] text-[9px] md:text-[13px] leading-[13.5px] md:leading-[19.5px] uppercase rounded-[8px] hover:bg-orange-600 transition duration-300">
+                    <Link href={`/products/${product.id}`} className="px-[10px] md:px-[15px] py-[8px] md:py-[12px] border-2 border-primaryColor text-primaryColor font-[600] text-[9px] md:text-[13px] leading-[13.5px] md:leading-[19.5px] uppercase rounded-[8px] hover:bg-orange-600 transition duration-300">
                       {t("Products.add_to_cart")} {/* Translated button text */}
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

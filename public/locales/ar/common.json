@@ -70,7 +70,7 @@
   "FeaturedDoors": {
     "featured_doors": "الأبواب المميزة",
     "featured_doors_description": "سيد يوتم بيرسبيشياتيس أوندي أومنيز إستي ناتوس إيرور سيت فولوبيتيتوم أكوشيم دولور...",
-    "add_to_cart": "أضف إلى السلة",
+    "add_to_cart": "عرض المزيد",
     "view_more_doors": "عرض المزيد من الأبواب"
   },
   "GetInTouch": {
@@ -119,6 +119,6 @@
   },
   "Products": {
     "our_products": "منتجاتنا",
-    "add_to_cart": "أضف إلى السلة"
+    "add_to_cart": "اعرف المزيد"
   }
 }

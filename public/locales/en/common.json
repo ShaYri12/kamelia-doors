@@ -70,7 +70,7 @@
   "FeaturedDoors": {
     "featured_doors": "Featured Doors",
     "featured_doors_description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accuium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-    "add_to_cart": "Add to Cart",
+    "add_to_cart": "View More",
     "view_more_doors": "View More Doors"
   },
   "GetInTouch": {
@@ -119,6 +119,6 @@
   },
   "Products": {
     "our_products": "Our Products",
-    "add_to_cart": "Add to Cart"
+    "add_to_cart": "View More"
   }
 }

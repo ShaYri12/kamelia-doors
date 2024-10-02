@@ -110,7 +110,7 @@ export default function DifferentWood() {
             stretch: 10, // Adjust the spacing between slides
             depth: 200, // Increase depth for better 3D effect
             modifier: 1,
-            slideShadows: true,
+            slideShadows: false,
           }}
           modules={[EffectCoverflow, Pagination]}
           onSlideChange={handleSlideChange}
